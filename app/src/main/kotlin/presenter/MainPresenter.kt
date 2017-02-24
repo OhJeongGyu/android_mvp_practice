@@ -1,5 +1,6 @@
 package presenter
 
+import model.Photo
 import view.MainActivity
 
 /**
@@ -10,7 +11,9 @@ interface MainPresenter {
     fun sendToPresenter()
 
     interface View {
-        fun onDataReceived(data: String)
+        fun onDataReceived(data :String)
+        fun onPhotosReceived(data :List<Photo>)
+        fun onError(throwable :Throwable)
     }
 
 }
