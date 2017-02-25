@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 
 
-class MainPresenterImpl(val view: MainPresenter.View) : MainPresenter {
+class MainPresenterImpl(val view :MainPresenter.View) :MainPresenter {
 
     val BASE_URL = "https://api.flickr.com/"
     val METHOD = "flickr.photos.getRecent"
@@ -49,7 +49,7 @@ class MainPresenterImpl(val view: MainPresenter.View) : MainPresenter {
                 .getRecentImage(METHOD, API_KEY, FORMAT, 10, 1)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
-                .subscribe({ it -> view.onPhotosReceived(it.photos?.photo!!) },
+                .subscribe({ it -> view.onPhotosReceived(it?.photos?.photo!!) },
                     { it -> view.onError(it) }
                 )
     }

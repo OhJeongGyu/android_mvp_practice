@@ -8,17 +8,15 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.view.View.OnClickListener
-import android.widget.Button
-import android.widget.GridLayout
 import android.widget.TextView
 import com.mvp.ojk.mvpractice.R
 import model.Photo
 import presenter.MainPresenter
 import presenter.MainPresenterImpl
 
-class MainActivity : AppCompatActivity(), MainPresenter.View, OnClickListener{
+open class MainActivity : AppCompatActivity(), MainPresenter.View, OnClickListener{
 
-    var presenter: MainPresenterImpl = MainPresenterImpl(this)
+    var presenter :MainPresenterImpl = MainPresenterImpl(this)
 
     private val textView by lazy {
         findViewById(R.id.textView) as TextView
@@ -46,7 +44,7 @@ class MainActivity : AppCompatActivity(), MainPresenter.View, OnClickListener{
     }
     
     fun initRecyclerView() {
-        flickrRecyclerViewAdapter = FlickrRecyclerViewAdapter()
+        flickrRecyclerViewAdapter = FlickrRecyclerViewAdapter(this)
         recyclerView.adapter = flickrRecyclerViewAdapter
         recyclerView.layoutManager = GridLayoutManager(this,2)
     }
