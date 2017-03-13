@@ -13,12 +13,12 @@ import com.mvp.ojk.mvpractice.R
  */
 class FlickrHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    val imageViewOnItem by lazy {
-        itemView?.findViewById(R.id.imageViewOnItem) as ImageView
+    internal val imageViewOnItem by lazy {
+        itemView.findViewById(R.id.imageViewOnItem) as ImageView
     }
 
-    val titleTextView  by lazy {
-        itemView?.findViewById(R.id.titleTextView) as TextView
+    internal val titleTextView  by lazy {
+        itemView.findViewById(R.id.titleTextView) as TextView
     }
 
 }

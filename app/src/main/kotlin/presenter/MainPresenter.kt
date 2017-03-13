@@ -1,19 +1,39 @@
 package presenter
 
-import model.Photo
-import view.MainActivity
+
+import model.FlickrRepository
+import model.Result
+
 
 /**
  * Created by jeonggyuoh on 2017. 2. 24..
  */
-interface MainPresenter {
+class MainPresenter(private val adapterModel: MainContract.AdapterModel):
+        MainContract.Presenter,
+        FlickrRepository.FlickrEventListener {
 
-    fun sendToPresenter()
+    private val flickrRepository: FlickrRepository
 
-    interface View {
-        fun onDataReceived(data :String)
-        fun onPhotosReceived(data :List<Photo>)
-        fun onError(throwable :Throwable)
+    init {
+        flickrRepository = FlickrRepository.getInstance()
+        flickrRepository.flickrEventListener = this
     }
+
+    override fun refresh() {
+        flickrRepository.getDateByFlickr()
+    }
+
+    override fun onDataReceived(result: Result) {
+        result.photos?.photo?.let {
+            adapterModel.onPhotosReceived(it)
+        }
+
+    }
+
+    override fun onError(throwable: Throwable) {
+        adapterModel.onError(throwable)
+    }
+
+
 
 }
