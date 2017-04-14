@@ -1,4 +1,4 @@
-package model
+package data.model
 
 /**
  * Created by jeonggyuoh on 2017. 3. 13..

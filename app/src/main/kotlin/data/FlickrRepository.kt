@@ -1,9 +1,9 @@
-package model
+package data
 
-import android.content.Context
+import data.model.Result
+import data.network.FlickrService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import network.FlickrService
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,6 +17,7 @@ class FlickrRepository {
     private val BASE_URL = "https://api.flickr.com/"
     private val METHOD = "flickr.photos.getRecent"
     private val API_KEY = "<API_KEY>"
+
     private val FORMAT = "json"
 
     internal var flickrEventListener: FlickrEventListener? = null

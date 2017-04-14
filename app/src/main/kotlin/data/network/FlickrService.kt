@@ -1,8 +1,7 @@
-package network
+package data.network
 
+import data.model.Result
 import io.reactivex.Flowable
-import model.Photos
-import model.Result
 import retrofit2.http.GET
 import retrofit2.http.Query
 

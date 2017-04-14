@@ -1,7 +1,7 @@
-package adapter
+package flickrs.adapter
 
 
-import adapter.holder.FlickrHolder
+import flickrs.adapter.holder.FlickrHolder
 import android.content.Context
 import android.net.Uri
 import android.support.v7.widget.RecyclerView
@@ -16,8 +16,8 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.mvp.ojk.mvpractice.R
 import kotlinx.android.synthetic.main.item_flickr_recycler_view.view.*
-import model.Photo
-import presenter.MainContract
+import data.model.Photo
+import flickrs.presenter.MainContract
 import java.util.*
 
 /**
@@ -48,7 +48,7 @@ class FlickrRecyclerViewAdapter(private val context: Context):
             = FlickrHolder(LayoutInflater.from(context).inflate(R.layout.item_flickr_recycler_view, parent, false))
 
 
-    private fun makeUrl(photo :Photo) :String{
+    private fun makeUrl(photo : Photo) :String{
         return "http://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg"
     }
 

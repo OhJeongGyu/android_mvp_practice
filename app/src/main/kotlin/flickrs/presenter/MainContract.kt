@@ -1,6 +1,6 @@
-package presenter
+package flickrs.presenter
 
-import model.Photo
+import data.model.Photo
 
 /**
  * Created by jeonggyuoh on 2017. 3. 13..
@@ -9,6 +9,7 @@ interface MainContract {
 
     interface Presenter {
         fun refresh()
+        fun sendButtonEvent(name: String)
     }
 
     interface AdapterModel {
